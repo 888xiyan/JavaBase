@@ -12,6 +12,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         // 匹配数字，执行操作
         while(true) {
+            System.out.println("1.添加电影");
+            System.out.println("2.删除电影");
+            System.out.println("3.查询电影");
+            System.out.println("4.删除主演下的全部电影");
+            System.out.println("5.显示全部电影");
+            System.out.println("6.退出");
+
             System.out.println("请输入数字：");
             int num = sc.nextInt();
             switch(num) {
@@ -42,7 +49,7 @@ public class Main {
                         break;
                 case 6:
                     System.out.println("退出");
-                    break;
+                    return;
                 default:
                     System.out.println("输入错误");
                     break;

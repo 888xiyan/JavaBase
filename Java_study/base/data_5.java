@@ -6,6 +6,7 @@ public class data_5 {
             System.out.println("请输入第" +i+"位同学的成绩");
             Scanner sc = new Scanner(System.in);
             numbers[i] = sc.nextInt();
+            sc.close();
         }
 
         double max = numbers[0];
@@ -15,6 +16,7 @@ public class data_5 {
             }
         }
         System.out.println("第一名成绩："+max);
+        
     }
     
 }

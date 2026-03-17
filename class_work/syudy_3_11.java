@@ -15,7 +15,7 @@ public class syudy_3_11 {
         double p = (a+b+c)/2;
         double area = Math.sqrt(p*(p-a)*(p-b)*(p-c));
         System.out.println("三角形的面积是："+area);
-        
+        sc.close();
     }
     
 }

@@ -14,6 +14,11 @@ public class Main {
         //文件分类,复制
         classifyFile(getFile(path), path);
     }
+    /**
+     * @files src 文件路径
+     * @path 
+     */
+
     public static File[] getFile(String path){
         //一级文件对象获取
         File file = new File(path);
@@ -46,7 +51,6 @@ public class Main {
             }
         }
     }
-
     public static void copyFile(String src,String dest){
         //文件复制
         try (

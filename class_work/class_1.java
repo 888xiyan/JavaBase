@@ -9,12 +9,12 @@ public class class_1 {
         int a = sc.nextInt();
         System.out.println("请输入数字：");
         int b = sc.nextInt();
-        int max ;
-        if(a>b){
-        max = a;
-        }
-        else {max = b;}
-        System.out.println("最大值是："+max);
+        System.out.println("请输入数字：");
+        int c = sc.nextInt();
+        // 判断三个数的最大值
+        int t;
+        
+        System.out.println(a+" "+b+" "+c);
         sc.close();
     }
     

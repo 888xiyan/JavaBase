@@ -1,7 +1,6 @@
-package Java_study.data_9;
+package Data.data9IoStream;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class Main1 {
     public static void main(String[] args) throws Exception {

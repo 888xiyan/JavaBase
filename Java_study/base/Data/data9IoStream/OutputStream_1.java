@@ -1,4 +1,4 @@
-package Java_study.data_9;
+package Data.data9IoStream;
 
 import java.io.FileOutputStream;
 import java.io.OutputStream;

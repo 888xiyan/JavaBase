@@ -1,3 +1,4 @@
+package Data;
 import java.util.Scanner; 
 public class data_2{
     public static void main(String[] args){
@@ -19,6 +20,7 @@ public class data_2{
         System.out.println("个位是："+one);
         System.out.println("十位是："+ten);
         System.out.println("百位是："+yibai);
+        sc.close();
 
     }
 }

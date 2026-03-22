@@ -1,5 +1,6 @@
+package Data;
 import java.util.Random;
-public class data_6copy {
+public class data_6 {
     public static void main(String[] args){
         int[]numbers = new int[10];
         Random r = new Random();
@@ -8,7 +9,8 @@ public class data_6copy {
         double aves=0;
         for(int i=0;i<numbers.length;i++){
             numbers[i] = r.nextInt(100);
-            sum +=numbers[i];}
+            sum +=numbers[i];
+        }
         aves =(double) sum/numbers.length;
         for(int i=0;i<numbers.length;i++){
             if (numbers[i] < aves){

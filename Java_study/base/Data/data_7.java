@@ -1,3 +1,4 @@
+package Data;
 public class data_7 {
     public static void main(String[] args) {
         double s_1 = S(20,30);

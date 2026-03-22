@@ -1,3 +1,4 @@
+package Data;
 import java.util.Scanner;
 public class data_5 {
     public static void main(String[] args){

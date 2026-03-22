@@ -1,4 +1,4 @@
-package Java_study.data_9.COPY_work;
+package Data.COPY_work;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

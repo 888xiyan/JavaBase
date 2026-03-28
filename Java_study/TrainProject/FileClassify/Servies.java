@@ -1,64 +1,46 @@
 package Java_study.TrainProject.FileClassify;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import java.io.File;
 import java.util.ArrayList;
 
+
+
 public class Servies {
-    public static ArrayList<String> NameList = new ArrayList<>();
-    public static ArrayList<String> imageList= new ArrayList<>();
-    public static ArrayList<String> image_downloadList= new ArrayList<>();
-    public static ArrayList<String> IMGList= new ArrayList<>();
-    public static ArrayList<String> ScreenshotList= new ArrayList<>();
-    public static ArrayList<String> mp4List= new ArrayList<>();
-    public static ArrayList<String> otherList= new ArrayList<>();
-    //通过字符串中特殊字符实现分流
-    public static void Classify(ArrayList<String> NameList)
+    private static ArrayList<File> imageList= new ArrayList<>();
+    private static ArrayList<File> image_downloadList= new ArrayList<>();
+    private static ArrayList<File> IMGList= new ArrayList<>();
+    private static ArrayList<File> ScreenshotList= new ArrayList<>();
+    private static ArrayList<File> mp4List= new ArrayList<>();
+    private static ArrayList<File> otherList= new ArrayList<>();
+    //分类
+    public static void Classify(
+        File[] AbsoluteList,
+        String name1,String name2,
+        String name3,String name4,
+        String name5,String name6
+    )
     {
-        for(int i = 0;i < NameList.size();i++)
+        for(File NameFile : AbsoluteList)
         {
-            String Name = NameList.get(i);
-            if(Name.contains("image"))
-            {
-                imageList.add(Name);
-            }
-            if(Name.contains("image_download"))
-            {
-                image_downloadList.add(Name);
-            }
-            if(Name.contains("IMG"))
-            {
-                IMGList.add(Name);
-            }
-            if(Name.contains("Screenshot"))
-            {
-                ScreenshotList.add(Name);
-            }
-            if(Name.contains("mp4"))
-            {
-                mp4List.add(Name);
-            }
-            otherList.add(Name);
+            String Name = NameFile.getName();
+            if(Name.contains(name1)){imageList.add(NameFile);}
+            else if(Name.contains(name2)){image_downloadList.add(NameFile);}
+            else if(Name.contains(name3)){IMGList.add(NameFile);}
+            else if(Name.contains(name4)){ScreenshotList.add(NameFile);}
+            else if(Name.contains(name5)){mp4List.add(NameFile);}
+            else otherList.add(NameFile);
         }   
     }
-    public static void CopyFile(String name,String dir)throws Exception{
-    {
-        String SrcName = "C:\\Users\\Lenovo\\Desktop\\2025\\Pictures\\记忆\\记忆\\" + name;
-        String DestName = "C:\\Users\\Lenovo\\Desktop\\2025\\"+dir+"\\"+name;
-        //创建文件输入流管道与源文件连接
-        InputStream in = new FileInputStream(SrcName);
-        //创建文件输出流管道与目标文件连接
-        FileOutputStream out = new FileOutputStream(DestName);
-        byte[] buffer = new byte[1024];
-        int len;
-        while ((len = in.read(buffer)) != -1) {
-            out.write(buffer,0,len);
-        }
-        out.close();
-        in.close();
-        System.out.println("复制完成");
+    public static ArrayList<File> getimageList(){return imageList;}
+    public static ArrayList<File> getimage_download(){return image_downloadList;}
+    public static ArrayList<File> getIMGList(){return IMGList;}
+    public static ArrayList<File> getScreenshotList(){return ScreenshotList;}
+    public static ArrayList<File> getmp4List(){return mp4List;}
+    public static ArrayList<File> getotheList(){return otherList;}
+
+
 
     }
-        
-    }
-}
+
+
+
+

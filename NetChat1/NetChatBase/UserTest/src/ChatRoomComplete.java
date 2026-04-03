@@ -1,6 +1,10 @@
 package NetChat1.NetChatBase.UserTest.src;
 import javax.swing.*;
 import java.awt.*;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Socket;
 
 /**
  * 局域网聊天室完整界面
@@ -8,11 +12,17 @@ import java.awt.*;
  */
 public class ChatRoomComplete extends JFrame {
     // 核心组件
+    private DefaultListModel<String> userListModel;
+    private static JTextArea chatContentArea; // 聊天内容显示区
     private JList<String> onlineUserList;    // 在线人数展示列表
-    private JTextArea chatContentArea;       // 聊天内容显示区
     private JTextField messageInput;         // 消息输入框
-    private JButton sendButton;              // 发送按钮
-
+    private JButton sendButton;
+    private Socket socket;
+                  // 发送按钮
+    public ChatRoomComplete(String nickname,Socket socket) {
+        this(nickname);
+        this.socket = socket;
+    }
     public ChatRoomComplete(String nickname) {
         // 1. 窗口基础设置
         super("局域网聊天室 - " + nickname);
@@ -32,8 +42,9 @@ public class ChatRoomComplete extends JFrame {
         onlinePanel.setBorder(BorderFactory.createTitledBorder("在线人数")); // 标题边框
 
         // 在线用户列表（白色背景）
-        DefaultListModel<String> userListModel = new DefaultListModel<>();
+        
         // 模拟在线用户数据
+        
         onlineUserList = new JList<>(userListModel);
         onlineUserList.setBackground(Color.WHITE);       // 白色背景
         onlineUserList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // 单选
@@ -77,25 +88,52 @@ public class ChatRoomComplete extends JFrame {
         mainSplitPane.setLeftComponent(onlinePanel);
         mainSplitPane.setRightComponent(rightPanel);
         add(mainSplitPane);
+        // 群聊消息显示
 
         // ==================== 事件处理 ====================
         // 发送按钮点击事件
-        sendButton.addActionListener(e -> sendMessage(nickname));
+        sendButton.addActionListener(e -> {
+            try {
+                sendMessage();
+            } catch (Exception e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        });
         // 输入框回车发送
-        messageInput.addActionListener(e -> sendMessage(nickname));
+        messageInput.addActionListener(e -> {
+            try {
+                sendMessage();
+            } catch (Exception e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        });
     }
 
     /**
      * 发送消息逻辑
+     * @throws Exception 
      */
-    private void sendMessage(String nickname) {
+    private void sendMessage() throws Exception {
         String message = messageInput.getText().trim();
         if (!message.isEmpty()) {
-            chatContentArea.append(nickname + "：" + message + "\n");
-            messageInput.setText("");
+            OutputStream os = socket.getOutputStream();
+            DataOutputStream dos = new DataOutputStream(os);
+            dos.writeInt(1);
+            dos.writeUTF(message);
             // 滚动条自动到底部
             chatContentArea.setCaretPosition(chatContentArea.getText().length());
         }
+    }
+    //群聊消息展示
+    public static void showMessage(String message) {
+        chatContentArea.append(message + "\n");
+        chatContentArea.setCaretPosition(chatContentArea.getText().length());
+    }
+    public static void addUser(String nickname) {
+        DefaultListModel<String> userListModel = new DefaultListModel<>();
+        userListModel.addElement(nickname);
     }
 
     // 测试入口

@@ -1,0 +1,80 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            color: #000;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .separator {
+            height: 3px;
+            background-color: #ff6600;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        
+        .news-list {
+            color: #008000;
+        }
+        
+        .news-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        
+        .news-link {
+            color: #008000;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            transition: color 0.2s;
+        }
+        
+        .news-link:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+        
+        .normal-text {
+            color: #000;
+            font-size: 18px;
+        }
+        
+        .register-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed #ddd;
+        }
+        
+
+        
+        

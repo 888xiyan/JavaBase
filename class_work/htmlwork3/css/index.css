@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 650px;
+    height: 360px;
+    border: 1px solid #000;
+    margin: 80px auto 0;
+}
+.box .div1{
+    height: 230px;
+    margin: 20px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    background-image: linear-gradient(#9eb8c1,#0a4c63);
+}
+.box .div1 div{
+    height: 140px;
+    padding-left: 15px;
+    border-bottom: 1px solid #fff;
+    background: url(../img/beij6.png) no-repeat 58px 100%;
+}
+.box .div2{
+    background: #777;
+    color: #fff;
+    font-size: 14px;
+    padding-left: 20px;
+    height: 25px;
+    line-height: 25px;
+}
+.box .div3{
+    background: #ddd;
+    font-size: 12px;
+    padding-left: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+.box .div4{
+    height: 45px;
+    line-height: 45px;
+    font-size: 36px;
+    font-family: "隶书";
+    padding-left: 20px;
+    background: #eee;
+}
+.footer{
+    width: 650px;
+    margin: 0 auto;
+    text-align: right;
+}
